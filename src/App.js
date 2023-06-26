@@ -33,7 +33,7 @@ function App() {
   return (
     <div>
       <Header />
-      <Form />
+      <Form calculateHandler={calculateHandler} />
       <OutputTable />
     </div>
   );
