@@ -5,17 +5,13 @@ const initialInput = {
   "expected-return": 7,
   duration: 10,
 };
-const Form = () => {
-  // let [current, setCurrent] = useState(0);
-  // const [yearly, setYearly] = useState(0);
-  // const [expected, setExpected] = useState(0);
-  // const [duration, setDuration] = useState(0);
-
+const Form = (props) => {
   const [userInput, setUserInput] = useState(initialInput);
 
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("submit");
+    props.calculateHandler(userInput);
   };
   const resetHandler = () => {
     setUserInput(initialInput);
