@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-
+const initialInput = {
+  "current-savings": 10000,
+  "yearly-contribution": 1200,
+  "expected-return": 7,
+  duration: 10,
+};
 const Form = () => {
   // let [current, setCurrent] = useState(0);
   // const [yearly, setYearly] = useState(0);
   // const [expected, setExpected] = useState(0);
   // const [duration, setDuration] = useState(0);
-  const initialInput = {
-    "current-savings": 10000,
-    "yearly-contribution": 1200,
-    "expected-return": 7,
-    duration: 10,
-  };
+
   const [userInput, setUserInput] = useState(initialInput);
 
   const submitHandler = (e) => {
