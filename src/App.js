@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import OutputTable from "./components/OutputTable";
 
 function App() {
+  const [userInput, setUserInput] = useState(null);
   const calculateHandler = (userInput) => {
     // Should be triggered when form is submitted
     // You might not directly want to bind it to the submit event on the form though...
