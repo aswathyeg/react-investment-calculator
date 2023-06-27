@@ -38,7 +38,8 @@ function App() {
     <div>
       <Header />
       <Form calculateHandler={calculateHandler} />
-      <OutputTable />
+      {!userInput && <p>Please enter data</p>}
+      {userInput && <OutputTable data={yearlyData} />}
     </div>
   );
 }
