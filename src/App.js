@@ -39,7 +39,12 @@ function App() {
       <Header />
       <Form calculateHandler={calculateHandler} />
       {!userInput && <p>Please enter data</p>}
-      {userInput && <OutputTable data={yearlyData} />}
+      {userInput && (
+        <OutputTable
+          data={yearlyData}
+          initialInvestment={userInput["current-savings"]}
+        />
+      )}
     </div>
   );
 }
