@@ -1,21 +1,17 @@
 import React, { useState } from "react";
-
-const Form = () => {
-  // let [current, setCurrent] = useState(0);
-  // const [yearly, setYearly] = useState(0);
-  // const [expected, setExpected] = useState(0);
-  // const [duration, setDuration] = useState(0);
-  const initialInput = {
-    "current-savings": 10000,
-    "yearly-contribution": 1200,
-    "expected-return": 7,
-    duration: 10,
-  };
+const initialInput = {
+  "current-savings": 10000,
+  "yearly-contribution": 1200,
+  "expected-return": 7,
+  duration: 10,
+};
+const Form = (props) => {
   const [userInput, setUserInput] = useState(initialInput);
 
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("submit");
+    props.calculateHandler(userInput);
   };
   const resetHandler = () => {
     setUserInput(initialInput);
@@ -25,7 +21,7 @@ const Form = () => {
     setUserInput((prevValue) => {
       return {
         ...prevValue,
-        [input]: +value,
+        [input]: +value, // the "+" converts the string value to a number
       };
     });
   };
@@ -46,7 +42,14 @@ const Form = () => {
           </p>
           <p>
             <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
-            <input type="number" id="yearly-contribution" />
+            <input
+              type="number"
+              id="yearly-contribution"
+              onChange={(e) => {
+                inputChangeHandler("yearly-contribution", e.target.value);
+              }}
+              value={userInput["yearly-contribution"]}
+            />
           </p>
         </div>
         <div className="input-group">
@@ -54,11 +57,25 @@ const Form = () => {
             <label htmlFor="expected-return">
               Expected Interest (%, per year)
             </label>
-            <input type="number" id="expected-return" />
+            <input
+              type="number"
+              id="expected-return"
+              onChange={(e) => {
+                inputChangeHandler("expected-return", e.target.value);
+              }}
+              value={userInput["expected-return"]}
+            />
           </p>
           <p>
             <label htmlFor="duration">Investment Duration (years)</label>
-            <input type="number" id="duration" />
+            <input
+              type="number"
+              id="duration"
+              onChange={(e) => {
+                inputChangeHandler("duration", e.target.value);
+              }}
+              value={userInput["duration"]}
+            />
           </p>
         </div>
         <p className="actions">
