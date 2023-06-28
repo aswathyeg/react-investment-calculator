@@ -38,7 +38,7 @@ function App() {
     <div>
       <Header />
       <Form calculateHandler={calculateHandler} />
-      {!userInput && <p>Please enter data</p>}
+      {!userInput && <p style={{ textAlign: "center" }}>Please enter data</p>}
       {userInput && (
         <OutputTable
           data={yearlyData}

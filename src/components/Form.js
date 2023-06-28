@@ -21,7 +21,7 @@ const Form = (props) => {
     setUserInput((prevValue) => {
       return {
         ...prevValue,
-        [input]: +value,
+        [input]: +value, // the "+" converts the string value to a number
       };
     });
   };
